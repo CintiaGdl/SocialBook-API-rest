@@ -15,6 +15,10 @@ const register = async (req, res, next) => {
         if (userExist) {
             return next(setError(404, 'This email already exists.'));
         }
+        const usernameExist = await User.findOne({ username: user.username });
+        if (usernameExist) {
+            return next(setError(404, 'This username already exists.'));
+        }
         //si no se añade a nuestra DATA BASE
         const userDB = await user.save();
         return res.status(201).json(userDB.name);
