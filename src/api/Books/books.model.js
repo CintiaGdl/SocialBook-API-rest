@@ -14,7 +14,6 @@ const bookSchema = new mongoose.Schema(
     }
 )
 
-//guardamos la asana y el schema, asanas es el nombre de mi colección en la DB
 const Book = mongoose.model('books', bookSchema);
 //exportamos
 module.exports = Book;

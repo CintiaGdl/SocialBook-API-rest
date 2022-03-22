@@ -1,12 +1,11 @@
-//importamos el model de asanas
+//importamos el model
 const { setError } = require('../../utils/error/error');
 const Author = require('./authors.model');
 const { deleteImgCloudinary } = require('../../middlewares/deleteFile.middleware');
 
-//método para recuperar todos las asanas de la DB
+//método para recuperar todos de la DB
 const getAll = async (req, res, next) => {
     try {
-        //recuperamos todas las asanas con el método find de mongoose
         const authors = await Author.find().populate('books');
         //res lo que enviamos al front status 200 todo ok cuerpo asanas en formato json
         res.status(200).json(authors);
@@ -15,7 +14,6 @@ const getAll = async (req, res, next) => {
     }
 }
 
-//método para recuperar una secuence de la DB
 const getOne = async (req, res, next) => {
     try {
         //req recupera valores de la request de la url...10 guardamos el id mediante destructuring
@@ -28,7 +26,6 @@ const getOne = async (req, res, next) => {
     } 
 }
 
-//método para crear una nueva secuence
 const postOne = async (req, res, next) => {
     try {
         //variable para introducir los datos desde el front

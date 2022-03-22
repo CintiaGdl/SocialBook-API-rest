@@ -13,7 +13,8 @@ const userSchema = new mongoose.Schema({
     email: { type: String, trim: true, required: true },
     password: { type: String, trim: true, required: true },
     username: { type: String, trim: true, require: true },
-    birthday: { type: String, trim: true, require: true }
+    birthday: { type: String, trim: true, require: true },
+    favBooks: [{ type: mongoose.Schema.Types.ObjectId, ref: "books", required: true }]
 });
 
 //método mongoose para guardar poder encriptar y guardar las contraseñas

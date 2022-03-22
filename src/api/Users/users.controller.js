@@ -5,6 +5,9 @@ const JwtUtils = require('../../utils/jwt/jwt');
 //importamos formateo de errores
 const { setError } = require('../../utils/error/error');
 
+//importamos la validatioId para poder añadir los favoritos del user
+const { validationId } = require('../../utils/validators/validators');
+
 //configuramos la creación del user
 const register = async (req, res, next) => {
     try {
@@ -41,7 +44,7 @@ const login = async (req, res, next) => {
             // si es correcta generamos el Token
             const token = JwtUtils.generateToken(user._id, user.email);
             // y devolvemos el token al frontal
-            return res.status(200).json(token);
+            return res.status(200).json({ id: user._id, username: user.username , token: token });
         } else {
             return next(setError(404, 'This password is not correct.'))
         }
@@ -61,4 +64,34 @@ const logout = (req, res, next) => {
     }
 };
 
-module.exports = { register, login, logout };
+//configuramos función para coger datos de nuestro user
+const getUser = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const user = await User.findById(id);
+        //necesitamos una función validationId para validar el usuario
+        if (validationId(req.headers.user, user)) {
+            return next(setError(404, 'This action is not allowed.'))
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        return next(error)
+    }
+}
+
+
+//configuramos la creación añadido de lista favoritos de books
+const addFavBookToUser = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const user = await User.findById(id);
+        user.favBooks = [...user.favBooks, ...req.body.favBooks];
+        const updateUser = await User.findByIdAndUpdate(user._id, user);
+        return res.status(200).json(updateUser);
+    } catch (error) {
+        return next(setError(404, 'It was not possible add this book to favorite list.'));
+    }
+}
+
+
+module.exports = { register, login, logout, addFavBookToUser, getUser };

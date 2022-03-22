@@ -11,5 +11,10 @@ const validationEmail = (email) => {
     return response.test(String(email).toLocaleLowerCase());
 };
 
+//validamos el id del usuario para poder realizar operaciones sólo con el user valido 
+const validationId = (id, user) => {
+    return user._id === id ? true : false;
+}
+
 //exportamos
-module.exports = { validationPassword, validationEmail }
+module.exports = { validationPassword, validationEmail, validationId }

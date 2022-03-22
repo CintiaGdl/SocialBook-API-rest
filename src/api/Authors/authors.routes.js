@@ -10,8 +10,8 @@ const {
 } = require('./authors.controller');
 
 //importamos la autenticación
-const { isAuth } = require('../../middlewares/auth.middleware')
-// Traer todos los actores en el endpoint /all
+const { isAuth } = require('../../middlewares/auth.middleware');
+
 AuthorRoutes.get('/', getAll);
 AuthorRoutes.get('/:id', getOne);
 AuthorRoutes.post('/', [isAuth], upload.single('image'), postOne);

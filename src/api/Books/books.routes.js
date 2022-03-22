@@ -13,7 +13,7 @@ const {
 //importamos la autenticación
 const { isAuth } = require('../../middlewares/auth.middleware')
 
-//importamos nuestros endpoints de asanas
+//importamos nuestros endpoints
 BooksRoutes.get('/', getAll);
 BooksRoutes.get('/:id', getOne);
 BooksRoutes.post('/', [isAuth], upload.single('image'), postOne);
