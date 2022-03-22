@@ -1,0 +1,131 @@
+{
+    "Movies": "/api/Authors",
+    "schema": {
+        "name": "string",
+        "birthdate": "string",
+        "image": "url",
+        "books": [ "Array BookID" ]
+    },
+    "endpoints": [
+        {
+            "Action": "GET",
+            "URL": "/api/Authors",
+            "response": [
+                {
+                    "_id": "",
+                    "name": "string",
+                    "birthdate": "string",
+                    "books": [
+                        {
+                            "_id": "",
+                            "name": "string",
+                            "description": "string",
+                            "bookLaunch": "string",
+                            "tags": "string",
+                            "image": "url",
+                            "createdAt": "",
+                            "updatedAt": "",
+                            "__v": 0
+                        },
+                        {
+                            "_id": "",
+                            "name": "string",
+                            "description": "string",
+                            "bookLaunch": "string",
+                            "tags": "string",
+                            "image": "url",
+                            "createdAt": "",
+                            "updatedAt": "",
+                            "__v": 0
+                        }
+                    ],
+                    "image": "url",
+                    "createdAt": "",
+                    "updatedAt": "",
+                    "__v": 0
+                },
+                {
+                    "_id": "",
+                    "name": "string",
+                    "birthdate": "string",
+                    "books": [
+                        {
+                            "_id": "",
+                            "name": "string",
+                            "description": "string",
+                            "bookLaunch": "string",
+                            "tags": "string",
+                            "image": "url",
+                            "createdAt": "",
+                            "updatedAt": "",
+                            "__v": 0
+                        }
+                    ],
+                    "image": "url",
+                    "createdAt": "",
+                    "updatedAt": "",
+                    "__v": 0
+                }
+            ]
+        },
+        {
+            "Action": "GET",
+            "URL": "/api/Authors/id",
+            "response": {
+                "_id": "",
+                "name": "string",
+                "birthdate": "string",
+                "books": [
+                    {
+                        "_id": "",
+                        "name": "string",
+                        "description": "string",
+                        "bookLaunch": "string",
+                        "tags": "string",
+                        "image": "url",
+                        "createdAt": "",
+                        "updatedAt": "",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "",
+                        "name": "string",
+                        "description": "string",
+                        "bookLaunch": "string",
+                        "tags": "string",
+                        "image": "url",
+                        "createdAt": "",
+                        "updatedAt": "",
+                        "__v": 0
+                    }
+                ],
+                "image": "url",
+                "createdAt": "",
+                "updatedAt": "",
+                "__v": 0
+            }
+        },
+        {
+            "Action": "POST",
+            "URL": "/api/Authors",
+            "request-body": {
+                "name": "string",
+                "birthdate": "string",
+                "image": "url",
+                "books": [ "Array BookID" ]
+		        },
+		        "response": {
+                    "name": "string",
+                    "birthdate": "string",
+                    "books": [
+                        "BookID"
+                    ],
+                    "_id": "",
+                    "image": "url",
+                    "createdAt": "",
+                    "updatedAt": "",
+                    "__v": 0
+                }
+        }
+    ]
+}

@@ -6,7 +6,7 @@ const { connect } = require('./src/utils/database/db');
 
 const { configCloudinary } = require('./src/utils/cloudinary/config');
 
-// const documentation = require('./src/utils/documentation/api.json');
+const documentation = require('./src/utils/documentation/api.json');
 
 const BookRouters = require('./src/api/Books/books.routes');
 const AuthorRouters = require('./src/api/Authors/authors.routes');
